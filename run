@@ -1,0 +1,26 @@
+#!/bin/bash
+
+#程序名称
+app_name="guerd"
+
+msg_err="\e[31m Parameter 1 must be 'start' or 'stop'\e[0m"
+
+if [ $# == 0 ]
+then
+    echo -e $msg_err
+
+elif [ $1 == "start" ]
+then
+    if [ $2 == "-d" ]
+    then
+        # echo "-守护进程启动"
+        nohup ./$app_name &
+    else
+        ./$app_name
+    fi
+elif [ $1 == "stop" ]
+then
+    killall -9 $app_name
+else
+    echo -e $msg_err
+fi
