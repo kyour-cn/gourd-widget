@@ -11,8 +11,9 @@ package main
 
 import (
 	"github.com/kyour-cn/gourd"
+	crontab "gourd-widget/app/Crontab"
 	"gourd-widget/app/Http/route"
-	//"gourd-widget/app/Tcp"
+	tcp "gourd-widget/app/Tcp"
 )
 
 func main() {
@@ -21,13 +22,16 @@ func main() {
 	app := gourd.NewApp()
 
 	//指定配置文件
-	app.ConfigFile("./app.conf")
+	app.ConfigFile("./conf/app.conf")
 
 	//载入Http路由
 	app.HttpRoute(route.LoadRouter)
 
 	//注册Tcp事件
-	//app.RegistTcp(Tcp.)
+	app.RegistTcp(tcp.OnEvent())
+
+	//注册CronTab任务
+	crontab.Register()
 
 	//启动
 	app.Serve()

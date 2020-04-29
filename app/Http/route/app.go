@@ -12,7 +12,7 @@ package route
 import (
 	"github.com/gorilla/mux"
 	app_http "github.com/kyour-cn/gourd/application/app-http"
-	"gourd-widget/app/Http/controller/index"
+	"gourd-widget/app/Http/controller"
 	ws_module "gourd-widget/app/Websocket"
 	"net/http"
 )
@@ -32,14 +32,8 @@ func LoadRouter() (route *mux.Router) {
 		_, _ = w.Write([]byte("Hello Gourd!"))
 	})
 
-	//index控制器路由
-	index.Regist(route)
-
-	//api路由
-	route.PathPrefix("/api").
-		HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-			_, _ = w.Write([]byte("Api Controller"))
-		})
+	//将route对象交给controller/define.go定义控制器路由
+	controller.Register(route)
 
 	//=======================================================================
 	// Websocket 路由定义
