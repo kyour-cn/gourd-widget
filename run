@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #程序名称
-app_name="guerd"
+app_name="gourd"
 
 msg_err="\e[31m Parameter 1 must be 'start' or 'stop'\e[0m"
 
