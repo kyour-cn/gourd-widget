@@ -14,17 +14,19 @@ import (
 	"log"
 )
 
+//注册任务
 func Register() {
 
 	//注册任务-根据名称获取 conf/cron.conf 配置对应的时间规则
 	app_cron.Register("test", func() {
 
-		log.Println("app/Crontab Test! ")
+		log.Println("Crontab 定时任务 ：test")
 
 	})
 
-	//直接定义
+	//直接定义 任务
 	//app_cron.AddFunc("0/10 * * * * *", func() {
 	//	log.Println("test 0/10")
 	//})
+
 }

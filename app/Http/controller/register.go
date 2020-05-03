@@ -10,13 +10,13 @@ package controller
  */
 
 import (
-	"github.com/gorilla/mux"
+	"github.com/kyour-cn/gourd/server/router"
 	"gourd-widget/app/Http/controller/index"
 	"net/http"
 )
 
 //注册控制器
-func Register(route *mux.Router) *mux.Router {
+func Register(route *router.Router) *router.Router {
 
 	//index控制器路由
 	index.Register(route)

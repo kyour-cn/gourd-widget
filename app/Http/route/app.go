@@ -10,18 +10,18 @@ package route
  */
 
 import (
-	"github.com/gorilla/mux"
-	app_http "github.com/kyour-cn/gourd/application/app-http"
+	"github.com/kyour-cn/gourd/server/middleware"
+	"github.com/kyour-cn/gourd/server/router"
 	"gourd-widget/app/Http/controller"
 	ws_module "gourd-widget/app/Websocket"
 	"net/http"
 )
 
 //载入路由定义
-func LoadRouter() (route *mux.Router) {
+func LoadRouter() (route *router.Router) {
 
 	//实例化创建路由
-	route = mux.NewRouter()
+	route = router.NewRouter()
 
 	//=======================================================================
 	// HTTP路由定义
@@ -44,7 +44,7 @@ func LoadRouter() (route *mux.Router) {
 
 	//静态资源访问路由 -必须放在最后面，否则上面的路由不生效
 	route.PathPrefix("/").
-		HandlerFunc(app_http.FileMiddleware)
+		HandlerFunc(middleware.FileMiddleware)
 
 	return
 }

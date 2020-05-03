@@ -21,8 +21,8 @@ func main() {
 	//创建Application
 	app := gourd.NewApp()
 
-	//指定配置文件
-	app.ConfigFile("./conf/app.conf")
+	//指定配置文件路径
+	app.ConfigPath("./conf/")
 
 	//载入Http路由
 	app.HttpRoute(route.LoadRouter)

@@ -15,6 +15,8 @@ Gourd框架的项目文件
 * 快速上手开发应用
 * 内置Websocket和TcpSocket连接池管理
 * 内置Websocket和TcpSocket事件回调
+* 内存缓存
+* Session
 
 ## 下载
 在命令行输入 `go get github.com/kyour-cn/gourd-widget` 下载

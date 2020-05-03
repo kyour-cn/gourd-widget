@@ -11,7 +11,7 @@ package Websocket
 
 import (
 	"fmt"
-	"github.com/gorilla/mux"
+	"github.com/kyour-cn/gourd/server/router"
 	"github.com/kyour-cn/gourd/server/ws"
 	"net/http"
 	"strconv"
@@ -21,7 +21,7 @@ import (
 var prefix = "/ws"
 
 //注册ws模块
-func Regist(r *mux.Router) {
+func Regist(r *router.Router) {
 
 	//定义路由
 	r.PathPrefix(prefix).HandlerFunc(Demo)
